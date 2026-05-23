@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croma Beauty</title>
+
+<style>
+/* ========================= */
+/* 0. FUENTES LOCALES        */
+/* ========================= */
+@font-face {
+    font-family: 'LeagueSpartan';
+    src: url('LeagueSpartan-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900; 
+    font-style: normal;
+}
+
+/* ========================= */
+/* 1. RESET CSS              */
+/* ========================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input, button {
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+/* ========================= */
+/* 2. UTILIDADES (CLEARFIX)  */
+/* ========================= */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ========================= */
+/* 3. ESTILOS GENERALES      */
+/* ========================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #2f2f2f;
+    padding: 20px;
+    font-family: 'LeagueSpartan', sans-serif;
+    font-weight: 800; 
+    color: #9E0000; 
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    background: white;
+}
+
+/* ========================= */
+/* HERO SECTION              */
+/* ========================= */
+.hero {
+    width: 100%;
+    background: #F9F0E1; 
+    padding: 40px 50px 70px 50px;
+}
+
+.top-nav {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.menu {
+    float: left;
+}
+
+.menu a {
+    float: left;
+    margin-right: 60px;
+    text-decoration: none;
+    color: #9E0000;
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.menu-icon {
+    float: right;
+    color: #9E0000;
+    font-size: 65px;
+    font-weight: bold;
+    line-height: 0.6;
+    cursor: pointer;
+}
+
+.hero-content {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.imagenes {
+    float: left;
+    width: 60%; 
+    padding-right: 20px;
+}
+
+.imagenes img {
+    width: 100%;
+    max-width: 850px; 
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+    mix-blend-mode: multiply; 
+}
+
+.texto {
+    float: left;
+    width: 40%; 
+    text-align: center;
+    padding-top: 60px;
+}
+
+.logo-container {
+    margin-bottom: 30px; 
+    display: block;
+}
+
+.logo-img {
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+    max-height: 180px; 
+}
+
+.sale {
+    font-size: 100px;
+    font-weight: bold;
+    margin-bottom: 0px; 
+    line-height: 1;
+}
+
+.off {
+    font-size: 80px; 
+    font-weight: bold;
+    margin-bottom: 40px;
+    line-height: 1;
+}
+
+.boton {
+    background: #9E0000; 
+    color: #ffffff; 
+    border: 3px solid #9E0000;
+    padding: 20px 70px;
+    border-radius: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.restricciones {
+    margin-top: 10px; 
+    font-size: 22px;
+    font-weight: normal; 
+    line-height: 1.4;
+}
+
+/* ========================= */
+/* PRODUCTOS SECTION         */
+/* ========================= */
+.productos {
+    background: #ffffff;
+    /* PADDING SUPERIOR REDUCIDO PARA SUBIR TODO EL BLOQUE */
+    padding: 120px 50px 80px 50px; 
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.info-producto {
+    width: 42%; 
+    position: relative;
+    padding-left: 75px; /* mueve todo el bloque a la derecha */
+}
+
+.new {
+    position: absolute;
+    top: -100px; /* mueve la imagen más abajo */
+    left: -20px; /* la mueve un poco a la derecha */
+    transform: rotate(-5deg);
+    max-width: 300px;
+    height: auto;
+    display: block;
+    z-index: 10;
+}
+.titulo {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 110px; /* baja el texto */
+    margin-bottom: 0px;
+    line-height: 1.3;
+}
+.descripcion {
+    font-size: 24px; 
+    line-height: 1.4;
+}
+
+.variante {
+    font-weight: 800; 
+    display: block;
+    margin-top: 40px; 
+    margin-bottom: 4px; 
+}
+
+.texto-desc {
+    font-weight: 400; 
+}
+
+.galeria {
+    width: 55%; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    gap: 4%; 
+}
+
+.card {
+    width: 48%; 
+    background: #F9F0E1; 
+    text-align: center;
+    border-radius: 8px;
+    padding: 0; 
+}
+
+.card img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+    border-radius: 8px;
+}
+
+/* ========================= */
+/* NEWSLETTER SECTION        */
+/* ========================= */
+.newsletter {
+    clear: both; 
+    background: #F9F0E1;
+    padding: 70px 50px;
+    text-align: center;
+}
+
+.form-container {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.newsletter h2 {
+    font-size: 32px; 
+    white-space: nowrap; 
+    margin-bottom: 35px;
+    line-height: 1.3;
+}
+
+.input {
+    width: 100%; 
+    padding: 22px;
+    border: none; 
+    background: #ffffff; 
+    color: #9E0000;
+    border-radius: 40px;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 30px;
+    outline: none; 
+}
+
+.input::placeholder {
+    color: #9E0000; 
+    opacity: 0.7;
+}
+
+.btn-news {
+    background: #9E0000; 
+    color: #ffffff; 
+    border: 3px solid #9E0000;
+    padding: 18px 80px;
+    border-radius: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.privacidad {
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+/* ========================= */
+/* 4. RESPONSIVE (MÓVIL Y TABLET) */
+/* ========================= */
+@media (max-width: 1100px) {
+    .newsletter h2 {
+        white-space: normal; /* Permite que el texto baje de línea en pantallas medianas */
+    }
+}
+
+@media (max-width: 900px) {
+    .hero, .productos, .newsletter {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .imagenes { width: 50%; }
+    .texto { width: 50%; }
+    .sale { font-size: 60px; }
+    .off { font-size: 50px; }
+    .menu a { font-size: 24px; margin-right: 20px; }
+    
+    .productos {
+        flex-direction: column;
+        padding-top: 80px;
+    }
+    .info-producto { width: 100%; text-align: center; }
+    .galeria { width: 100%; margin-top: 50px; }
+    
+    .new {
+        left: 50%; /* Centramos la imagen en pantallas pequeñas */
+        transform: translate(-50%, -5deg);
+        top: -70px;
+    }
+    .titulo { margin-top: 150px; }
+}
+
+@media (max-width: 768px) {
+    body { padding: 0; }
+    .menu a { font-size: 18px; margin-right: 15px; }
+    .menu-icon { font-size: 40px; margin-top: -5px; }
+    
+    .hero-content { margin-top: 20px; }
+    .imagenes { width: 100%; float: none; padding-right: 0; }
+    .texto { width: 100%; float: none; padding-top: 30px; }
+    
+    .logo-img { max-height: 120px; }
+    .boton, .btn-news { font-size: 22px; padding: 15px 40px; }
+    
+    .new { max-width: 220px; top: -50px; }
+    .titulo { font-size: 26px; margin-top: 130px; }
+    .descripcion { font-size: 20px; }
+    
+    .newsletter h2 { font-size: 24px; }
+    .input { font-size: 18px; padding: 15px; }
+}
+
+@media (max-width: 480px) {
+    .sale { font-size: 50px; }
+    .off { font-size: 40px; }
+    
+    .galeria {
+        flex-direction: column; /* Pone una imagen debajo de la otra en celulares */
+        gap: 20px;
+    }
+    .card { width: 100%; }
+    
+    .new { max-width: 180px; top: -30px; }
+    .titulo { margin-top: 110px; font-size: 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <section class="hero clearfix">
+        
+        <div class="top-nav clearfix">
+            <div class="menu clearfix">
+                <a href="#">About Us</a>
+                <a href="#">Shop</a>
+                <a href="#">Iconics</a>
+            </div>
+            <div class="menu-icon">
+                ☰
+            </div>
+        </div>
+
+        <div class="hero-content clearfix">
+            <div class="imagenes">
+                <img src="Imagen 1.webp" alt="Modelo Croma Beauty">
+            </div>
+
+            <div class="texto">
+                <h1 class="logo-container">
+                    <img src="logo.webp" alt="Croma Beauty Logo" class="logo-img">
+                </h1>
+
+                <div class="sale">SALE</div>
+                <div class="off">70% OFF</div>
+                
+                <button class="boton">
+                    SHOP NOW!
+                </button>
+                <p class="restricciones">
+                    Applies restrictions
+                </p>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="productos">
+        
+        <div class="info-producto">
+            <img src="New.webp" alt="¡NEW!" class="new">
+
+            <div class="titulo">
+                Warm Wishes Soft <br>
+                Matte Powder Bronzer
+            </div>
+            
+            <div class="descripcion">
+                <span class="variante">No. Summer Feels</span>
+                <span class="texto-desc">
+                    An ultra-smooth bronzing <br> 
+                    powder with a blurred matte <br> 
+                    finish that gives skin a natural <br> 
+                    sunlit warmth all day long.
+                </span>
+            </div>
+        </div>
+
+        <div class="galeria">
+            <div class="card">
+                <img src="rarebeauty1.webp" alt="Producto 1">
+            </div>
+            <div class="card">
+                <img src="rarebeauty2.webp" alt="Producto 2">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="newsletter">
+        
+        <div class="form-container">
+            <h2>
+                Subscribe to receive our newsletter and promotions by email
+            </h2>
+            <input type="email" placeholder="Enter email address" class="input">
+        </div>
+        <br>
+        
+        <button class="btn-news">
+            Sign up
+        </button>
+        
+        <p class="privacidad">
+            <span class="texto-desc">Want to understand how Croma Beauty handles your personal data?</span><br>
+            Access our Privacy Notice.
+        </p>
+
+    </section>
+
+</div>
+
+</body>
+</html>
